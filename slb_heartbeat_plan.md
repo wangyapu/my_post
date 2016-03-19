@@ -10,7 +10,8 @@
 
 后台服务器数量不断增加，会对做健康监测的服务器造成一定压力，健康检测的延迟、也会越来越大。可以通过水平扩展健康检测节点，为每个节点均分健康检测的范围，提高检测的效率，降低一部分延迟。
 
-![image](./md_pic/slb_heartbeat/plan1.png)
+![image](https://github.com/wangyapu0714/my_post/raw/master/md_pic/slb_heartbeat/plan1.png)
+    
     
 ### 利
 
@@ -32,7 +33,7 @@ nginx与后台服务器的网络互通状态无法检测，安全性比较低。
 
 健康检测节点可以根据负载、机器配置选取。
 
-![image](./md_pic/slb_heartbeat/plan2.png)
+![image](https://github.com/wangyapu0714/my_post/raw/master/md_pic/slb_heartbeat/plan2.png)
     
 ### 利
 
@@ -53,8 +54,7 @@ nginx与后台服务器的网络互通状态无法检测，安全性比较低。
 
 ### 解决方案
 
-站点重复的解决方法：仍然从nginx本身出发，通过更改tengine的健康检测模块逻
-辑，过滤重复的ip可以解决站点重复的问题。
+站点重复的解决方法：仍然从nginx本身出发，通过更改tengine的健康检测模块逻辑，过滤重复的ip可以解决站点重复的问题。
 
 多主机的问题解决方法：在第三方检测模块增加参数所在集群的nginx数量，根据数量生成随机序列，制定下一次健康检测的策略，使得多个主机同时进行健康检测的概率降低。
 
@@ -85,7 +85,7 @@ nginx与后台服务器的网络互通状态无法检测，安全性比较低。
 
 依然按网段选取需要做健康检测nginx节点，启动一个agent，不断去轮循获取所有健康检测节点的心跳数据，检测出需要变更的状态通知给同网段其他nginx节点更新upstream-list（有则更新，无则不做处理）。
 
-![image](./md_pic/slb_heartbeat/plan3.png)
+![image](https://github.com/wangyapu0714/my_post/raw/master/md_pic/slb_heartbeat/plan3.png)
 
 ### 利
 
@@ -124,7 +124,7 @@ nginx与后台服务器的网络互通状态无法检测，安全性比较低。
 
 启动一个agent，不断去轮循获取所有健康检测节点的心跳数据，检测出需要变更的状态通知给同网段其他nginx节点更新upstream-list（有则更新，无则不做处理）。
 
-![image](./md_pic/slb_heartbeat/plan4.png)
+![image](https://github.com/wangyapu0714/my_post/raw/master/md_pic/slb_heartbeat/plan4.png)
     
 ### 利
 
