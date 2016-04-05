@@ -58,3 +58,6 @@ rootfs中每个只读的image都可以称为一个layer。
 
 ## Docker结合Jenkins的思路
 
+
+![image](https://github.com/wangyapu0714/my_post/raw/master/md_pic/docker/docker_Jenkins.png)
+
